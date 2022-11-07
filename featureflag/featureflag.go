@@ -19,6 +19,10 @@ func InitFeatureFlag() error {
 		Retriever: &fileretriever.Retriever{
 			Path: configFile,
 		},
+		// Retriever: &httpretriever.Retriever{
+		// 	URL:     "https://raw.githubusercontent.com/zikrykr/go-feature-flags/main/flag-config.json",
+		// 	Timeout: 5 * time.Second,
+		// },
 	})
 	if err != nil {
 		return err

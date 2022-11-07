@@ -18,12 +18,12 @@ func main() {
 	defer ffclient.Close()
 
 	e.GET("/users", getUser)
-	e.Logger.Fatal(e.Start(":8082"))
+	e.Logger.Fatal(e.Start(":8089"))
 }
 
 type User struct {
 	Name        string `json:"name"`
-	PhoneNumber string `json:"phone_number"`
+	PhoneNumber string `json:"phone_number,omitempty"`
 }
 
 func getUser(c echo.Context) error {

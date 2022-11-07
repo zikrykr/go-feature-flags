@@ -1,4 +1,10 @@
 # go-feature-flags
 go feature flags
 
-to start application, run this command `go run main.go`
+this specific application is using echo framework, so make sure you already installed it on your machine
+for install echo, visit this [link](https://github.com/labstack/echo)
+
+to start application, 
+- run `go mod init`
+- run `go get github.com/thomaspoignant/go-feature-flag`
+- run this command `go run main.go`
