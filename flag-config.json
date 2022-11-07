@@ -1,8 +1,7 @@
 {
   "enable-show-phone-number": {
     "percentage": 100,
-    "true": true,
-    "false": false,
+    "true": false,
     "default": false
   }
 }
