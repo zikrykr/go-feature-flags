@@ -3,21 +3,17 @@ package featureflag
 import (
 	"time"
 
+	"github.com/go-feature-flag/config"
 	ffclient "github.com/thomaspoignant/go-feature-flag"
 	"github.com/thomaspoignant/go-feature-flag/ffuser"
 	"github.com/thomaspoignant/go-feature-flag/retriever/fileretriever"
 )
 
-const (
-	configFile  = "./flag-config.json"
-	userDefault = "user-default-key"
-)
-
-func InitFeatureFlag() error {
+func InitFeatureFlag(config *config.Config) error {
 	err := ffclient.Init(ffclient.Config{
 		PollingInterval: 3 * time.Second,
 		Retriever: &fileretriever.Retriever{
-			Path: configFile,
+			Path: config.FeatureFlag.ConfigFilePath,
 		},
 		// Retriever: &httpretriever.Retriever{
 		// 	URL:     "https://raw.githubusercontent.com/zikrykr/go-feature-flags/main/flag-config.json",
@@ -32,7 +28,11 @@ func InitFeatureFlag() error {
 }
 
 func IsFeatureEnabled(flagKey string) bool {
-	user := ffuser.NewUser(userDefault)
+	cfg, err := config.LoadConfig()
+	if err != nil {
+		return false
+	}
+	user := ffuser.NewUser(cfg.FeatureFlag.UserDefault)
 	hasFlag, _ := ffclient.BoolVariation(flagKey, user, false)
 	return hasFlag
 }

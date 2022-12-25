@@ -5,6 +5,5 @@ this specific application is using echo framework, so make sure you already inst
 for install echo, visit this [link](https://github.com/labstack/echo)
 
 to start application, 
-- run `go mod init`
-- run `go get github.com/thomaspoignant/go-feature-flag`
+- run `go mod tidy`
 - run this command `go run main.go`

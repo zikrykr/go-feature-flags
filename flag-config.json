@@ -1,7 +1,1 @@
-{
-  "enable-show-phone-number": {
-    "percentage": 100,
-    "true": true,
-    "default": false
-  }
-}
+{"enable-show-phone-number":{"percentage":100,"true":true,"default":false},"enable-show-username":{"percentage":100,"true":true,"default":false},"new-flag":{"percentage":100,"true":true,"default":false}}
